@@ -4,9 +4,9 @@ from flask import render_template
 from flask import json
 from urllib.request import urlopen
 import sqlite3
-                                                                                                                                       
-app = Flask(__name__)                                                                                                                  
-                                                                                                                                       
+
+app = Flask(name)
+
 @app.route('/')
 def hello_world():
     return render_template('hello.html') #Commit
@@ -19,6 +19,6 @@ def encryptage(valeur):
     valeur_bytes = valeur.encode()  # Conversion str -> bytes
     token = f.encrypt(valeur_bytes)  # Encrypt la valeur
     return f"Valeur encryptée : {token.decode()}"  # Retourne le token en str
-                                                                                                                                                     
-if __name__ == "__main__":
+
+if name == "main":
   app.run(debug=True)
